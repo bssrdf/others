@@ -14,7 +14,7 @@ class Solution:
                 string = self.readNumber100(number%1000)+self.bigs[cnt]+" "+string
             number/=1000
             cnt+=1
-        return string
+        return string.strip()
 
     def readNumber100(self, number):
         string = ""
