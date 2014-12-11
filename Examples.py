@@ -32,21 +32,24 @@ class PizzaFactory(object):
 
 # Singleton
 class Singleton(object):
+    __instance = None
     def __new__(cls, *args, **kwargs):
-        if not hasattr(cls, 'self'):
-            cls.self = object.__new__(cls)
-        return cls.self
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls)
+            cls.__instance.__initialized = False
+        return cls.__instance
 
-class Restaurant(Singleton):
     def __init__(self, s):
+        if (self.__initialized): return
+        self.__initialized = True
         self.s = s
 
 if __name__ == '__main__':
     for pizza_type in ('HamMushroom', 'Deluxe', 'Hawaiian'):
         print 'Price of {0} is {1}'.format(pizza_type, PizzaFactory.create_pizza(pizza_type).get_price())
     #Usage
-    mySingleton1 = Restaurant('Inka Mama')
-    mySingleton2 = Restaurant('Thai')
+    mySingleton1 = Singleton('Inka Mama')
+    mySingleton2 = Singleton('Thai')
  
     print mySingleton1 is mySingleton2
     print mySingleton1.s
