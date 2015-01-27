@@ -10,16 +10,38 @@ class Solution:
                 prev = i
         return res
 
+    # def dp(self, array):
+    #     array.sort(key=lambda x: x.end)
+    #     dp = [1 for i in range(len(array))]
+    #     for i in range(1, len(array)):             
+    #         for j in range(i):
+    #             if array[j].end<=array[i].start:
+    #                 dp[i] = max(dp[i-1], dp[j]+1)
+    #             else:
+    #                 dp[i] = max(dp[i-1], dp[i])
+    #     return max(dp)
+
+    # def dp(self, array):
+    #     array.sort(key=lambda x: x.end)
+    #     dp = [1 for i in range(len(array))]
+    #     for i in range(1, len(array)):             
+    #         for j in range(i):
+    #             if array[j].end<=array[i].start:
+    #                 dp[i] = max(dp[i], dp[j]+1)
+    #             else:
+    #                 dp[i] = max(dp[i], dp[j])
+    #     return dp[-1]
+
     def dp(self, array):
         array.sort(key=lambda x: x.end)
-        dp = [1 for i in range(len(array))]
+        dp = [[array[i]] for i in range(len(array))]
         for i in range(1, len(array)):             
             for j in range(i):
                 if array[j].end<=array[i].start:
-                    dp[i] = max(dp[i-1], dp[j]+1)
+                    if len(dp[j])+1>len(dp[i]): dp[i] = dp[j][:]+[array[i]]
                 else:
-                    dp[i] = max(dp[i-1], dp[i])
-        return max(dp)
+                    if len(dp[j])>len(dp[i]): dp[i] = dp[j][:]
+        return dp[-1]
 
 if __name__ == "__main__":
     s = Solution()
@@ -32,5 +54,6 @@ if __name__ == "__main__":
     for interval in res:
         print interval.start, interval.end
     res = s.dp(array)
-    print res
+    for interval in res:
+        print interval.start, interval.end
 
