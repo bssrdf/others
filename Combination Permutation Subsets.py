@@ -49,17 +49,16 @@ class Solution:
             currents = next
         return currents
 
+    # input are unique numbers
     def combination(self, n, k):
-        return self.combinationRecur(range(1,n+1), k, 0)
+        return self.combinationRecur(range(1, n+1), k)
 
-    def combinationRecur(self, nums, k, start):
-        if k<=0: return [[]]
-        if k>=len(nums): return [nums[:]]
+    def combinationRecur(self, nums, k):
+        if k==0: return [[]]
+        if k==len(nums): return [nums[:]]
         res = []
-        for i in range(start, len(nums)):
-            remains = self.combinationRecur(nums, k, i+1)
-            for remain in remains: res.append(remain)
-            remains = self.combinationRecur(nums, k-1, i+1)
+        for i in range(len(nums)):
+            remains = self.combinationRecur(nums[i+1:], k-1)
             for remain in remains: res.append([nums[i]]+remain)
         return res
 
