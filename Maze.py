@@ -1,3 +1,5 @@
+# amazon
+
 class Solution:
     def findPath(self, maze):
         visited = [[0 for i in range(len(maze[0]))] for j in range(len(maze))]

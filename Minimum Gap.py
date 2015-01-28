@@ -1,3 +1,5 @@
+# opposite of Maximum Gap on leetcode
+
 class Solution:
     # @param num, a list of integer
     # @return a list of pair of integers

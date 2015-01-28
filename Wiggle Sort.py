@@ -1,4 +1,6 @@
 # http://www.fgdsb.com/2015/01/20/special-sorting/
+# google
+
 class Solution:
     def sort(self, nums):
         if len(nums) == 0: return

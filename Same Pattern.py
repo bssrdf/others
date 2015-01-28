@@ -1,3 +1,7 @@
+# dropbox
+# pattern is abab, target is redblueredblue, return True
+# pattern is aabb, target is xyzabcxyzabc, return False
+
 class Solution:
     def isSamePattern(self, pattern, target):
         if len(pattern)>len(target): return False

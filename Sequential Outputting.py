@@ -1,3 +1,6 @@
+# http://www.fgdsb.com/2015/01/03/sequential-outputting/
+# concurrency
+
 from threading import Condition
 from threading import Thread
 

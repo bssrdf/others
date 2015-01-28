@@ -1,3 +1,10 @@
+# google 
+# page numbers of a book are 1,2,3,4...
+# d is the digit we are searching for
+# k is the number of occurrences of d
+# return the range of page numbers so that d occurred k times
+# example: d = 4, k = 1, return (4, 13)
+
 class Solution:
     def rangeOfPages(self, d, k):
         PgNoLowerBound = 0; PgNoUpperBound = 0;

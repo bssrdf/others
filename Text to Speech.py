@@ -1,3 +1,6 @@
+# amazon
+# read the input number
+
 class Solution:
     def __init__(self):
         self.digits = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']

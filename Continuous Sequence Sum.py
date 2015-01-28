@@ -1,3 +1,7 @@
+# check if there exists a continuous sequence in an integer array 
+# so that they sum up to the target
+# example: [1,2,3,4,5] 4+5=9 return True
+
 class Solution:
     def searchSeq(self, nums, target):
         nums.sort()
@@ -14,4 +18,5 @@ if __name__ == "__main__":
     s = Solution()
     print s.searchSeq([1,2,3,4,5], 9)
     print s.searchSeq([1,2,3,4,5], 3)
-    print s.searchSeq([1,2,3,4,5], 8)        
+    print s.searchSeq([1,2,3,4,5], 8)    
+    

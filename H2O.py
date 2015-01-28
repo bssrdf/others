@@ -1,3 +1,7 @@
+# http://www.fgdsb.com/2015/01/03/h2o-problem/
+# linkedin
+# concurrency
+
 from threading import Thread
 from threading import Lock
 from threading import Condition
