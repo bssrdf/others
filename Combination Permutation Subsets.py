@@ -1,3 +1,5 @@
+import math
+
 class Solution:
     # input are unique numbers
     def permutation(self, nums):
@@ -62,6 +64,34 @@ class Solution:
             for remain in remains: res.append([nums[i]]+remain)
         return res
 
+    # input are unique numbers
+    def getPermutation(self, n, k):
+        nums = range(1, n+1); k = k-1
+        fact = math.factorial(n-1)
+        res = ''
+        for j in reversed(range(n)):
+            i = k/fact
+            res = res+str(nums[i])
+            del nums[i]
+            k = k%fact
+            if j>0: fact = fact/j
+        return res
+
+    # input are unique numbers
+    def nextPermutation(self, nums):
+        if len(nums)==1: return nums
+        i = len(nums)-2
+        while i>=0:
+            if nums[i]>=nums[i+1]: i-=1
+            else: break
+        if i==-1: return list(reversed(nums))
+        j = len(nums)-1
+        while j>i:
+            if nums[j]>nums[i]: break
+            else: j-=1
+        nums[i], nums[j] = nums[j], nums[i]
+        return nums[:i+1]+list(reversed(nums[i+1:]))
+
 if __name__ == "__main__":
     s = Solution()
     print s.permutation([1,2,3])
@@ -69,3 +99,5 @@ if __name__ == "__main__":
     print s.subsets([1,2,3])
     print s.subsets2([1,1,2])
     print s.combination(4,2)
+    print s.getPermutation(4,2)
+    print s.nextPermutation([2,3,1])
